@@ -10,7 +10,9 @@ let initialState = {
             price: 10,
             image: banana,
             action: null,
-            discount: 0
+            discount: 0,
+            discountFrom: null,
+            discountPerMove: 0
         },
         {
             id: 1,
@@ -18,7 +20,9 @@ let initialState = {
             price: 8,
             image: apple,
             action: null,
-            discount: 0
+            discount: 0,
+            discountFrom: null,
+            discountPerMove: 0
         },
         {
             id: 2,
@@ -26,7 +30,9 @@ let initialState = {
             price: 10,
             image: papaya,
             action: "25$ for 3!",
-            discount: 5
+            discount: 0,
+            discountFrom: 3,
+            discountPerMove: 5
         }
     ],
 

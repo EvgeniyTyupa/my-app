@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Basket from './Basket';
-import { addToBasket, removeFromBasket, setTotalItemsCount} from '../../Redux/basketReducer';
+import { addToBasket, removeFromBasket, setTotalItemsCount, setDiscount} from '../../Redux/basketReducer';
 
 
 class BasketContainer extends React.Component{
@@ -13,6 +13,7 @@ class BasketContainer extends React.Component{
     }
     addToBasket = (item) => {
         this.props.addToBasket(item);
+        this.props.setDiscount(item);
         let totalItems = 0;
         this.props.basket.map(i => {
             totalItems += i.count;
@@ -22,6 +23,7 @@ class BasketContainer extends React.Component{
     }
     removeFromBasket = (item) => {
         this.props.removeFromBasket(item);
+        this.props.setDiscount(item);
         let totalItems = 0;
         this.props.basket.map(i => {
             totalItems += i.count;
@@ -52,4 +54,5 @@ export default connect(mapStateToProps, {
     addToBasket,
     removeFromBasket,
     setTotalItemsCount,
+    setDiscount
 })(BasketContainer);

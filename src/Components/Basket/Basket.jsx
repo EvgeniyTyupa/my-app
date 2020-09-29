@@ -5,7 +5,7 @@ const Basket = (props) => {
     let totalSum = 0;
     if(props.basket){
         props.basket.map(item => {
-            totalSum += item.count * item.price; 
+            totalSum += (item.count * item.price) - item.discount;
         })
     }
 
@@ -35,7 +35,7 @@ const Basket = (props) => {
                                         {item.count}
                                         <button onClick={()=>props.addToBasket(item)}>+</button>
                                     </th>
-                                    <th>{item.count >= 3 ? (item.count * item.price) - item.discount : item.count * item.price}</th>
+                                    <th>{(item.count * item.price) - item.discount}</th>
                                 </tr>                       
                             </tbody>
                         )                    

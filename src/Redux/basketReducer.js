@@ -1,6 +1,7 @@
 const ADD_TO_BASKET = 'ADD_TO_BASKET';
 const REMOVE_FROM_BASKET = 'REMOVE_FROM_BASKET';
 const SET_TOTAL_ITEMS_COUNT = 'SET_TOTAL_ITEMS_COUNT';
+const SET_DISCOUNT = 'SET_DISCOUNT'; 
 
 let initialState = {
     basket: [],
@@ -47,6 +48,19 @@ const basketReducer = (state = initialState, action) => {
             }
             return state;
         }
+        case SET_DISCOUNT: {
+            state.basket.map(item => {
+                if(item.id == action.item.id){
+                    if(item.discountFrom){
+                        if(item.count % item.discountFrom == 0){
+                            item.discount = (item.count / item.discountFrom) * item.discountPerMove;
+                        }
+                    }
+                    
+                }
+            })
+            return state;
+        }
         case SET_TOTAL_ITEMS_COUNT: {
             return { ...state, itemsCount: action.itemsCount }
         }
@@ -64,6 +78,9 @@ export const removeFromBasket = (item) => ({
 export const setTotalItemsCount = (itemsCount) => ({
     type: SET_TOTAL_ITEMS_COUNT, itemsCount
 });
+export const setDiscount = (item) => ({
+    type: SET_DISCOUNT, item
+})
 
 
 export default basketReducer;
