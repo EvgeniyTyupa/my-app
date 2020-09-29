@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import './App.css';
+import BasketContainer from './Components/Basket/BasketContainer';
+import MainContainer from './Components/Main/MainContainer';
+import NavbarContainer from './Components/Navbar/NavbarContainer';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <div className="main">
+          <NavbarContainer/>
+          <div className="contentWrapper">
+            <Route exact path="/">
+                <Redirect to="/shop" />
+            </Route>
+            <Route path="/shop" render={()=><MainContainer/>} key={1}/>
+            <Route path="/basket" render={()=><BasketContainer/>} key={2}/>
+          </div>
+          
+        </div>
+    </BrowserRouter>
   );
 }
 

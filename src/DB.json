@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "title": "banana",
+            "price": 10,
+            "image": "banana"
+        },
+        {
+            "title": "apple",
+            "price": 8,
+            "image": "apple"
+        },
+        {
+            "title": "papaya",
+            "price": 10,
+            "image": "papaya"
+        }
+    ]
+}

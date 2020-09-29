@@ -1,0 +1,59 @@
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 1170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container table{
+    border-collapse: collapse;
+    width: 70%;
+}
+.container table tr{
+    border: 2px solid brown;
+}
+.container tbody th{
+    font-weight: normal;
+}
+.container table th{
+    border: 1px solid black;
+    
+}
+.container table th button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+}
+@media screen and (max-width: 1024px){
+    .container{
+        width: 768px;
+    }
+    table tr{
+        height: 40px;
+    }
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 568px;
+    }
+}
+@media screen and (max-width: 568px){
+    .container{
+        width: 375px;
+    }
+    .container table{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 375px){
+    .container{
+        width: 310px;
+    }
+}
