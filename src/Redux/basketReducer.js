@@ -55,6 +55,9 @@ const basketReducer = (state = initialState, action) => {
                         if(item.count % item.discountFrom == 0){
                             item.discount = (item.count / item.discountFrom) * item.discountPerMove;
                         }
+                        if(item.count < 3){
+                            item.discount = 0;
+                        }
                     }
                     
                 }

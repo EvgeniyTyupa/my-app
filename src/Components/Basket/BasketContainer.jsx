@@ -31,6 +31,10 @@ class BasketContainer extends React.Component{
         this.props.setTotalItemsCount(totalItems);
         
     }
+    totalSum = (item) => {
+        let totalSum = (item.count * item.price) - item.discount;
+        return totalSum;
+    }
 
 
     render(){
@@ -38,7 +42,8 @@ class BasketContainer extends React.Component{
             <Basket basket={this.props.basket}
                     itemsCount={this.props.itemsCount}
                     addToBasket={this.addToBasket}
-                    removeFromBasket={this.removeFromBasket}/>
+                    removeFromBasket={this.removeFromBasket}
+                    totalSum={this.totalSum}/>
         );
     }
 }

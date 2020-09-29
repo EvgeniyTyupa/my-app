@@ -3,9 +3,11 @@ import classes from './Basket.module.css';
 
 const Basket = (props) => {
     let totalSum = 0;
+
+
     if(props.basket){
         props.basket.map(item => {
-            totalSum += (item.count * item.price) - item.discount;
+            totalSum += props.totalSum(item);
         })
     }
 
@@ -35,7 +37,7 @@ const Basket = (props) => {
                                         {item.count}
                                         <button onClick={()=>props.addToBasket(item)}>+</button>
                                     </th>
-                                    <th>{(item.count * item.price) - item.discount}</th>
+                                    <th>{props.totalSum(item)}</th>
                                 </tr>                       
                             </tbody>
                         )                    
