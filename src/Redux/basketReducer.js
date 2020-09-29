@@ -35,6 +35,11 @@ const basketReducer = (state = initialState, action) => {
                     if(item.id == action.item.id){
                         if(item.count > 1){
                             item.count--;
+                            if(item.discountFrom){
+                                if(item.count % item.discountFrom == 2){
+                                    item.discount -= item.discountPerMove;
+                                }
+                            }
                         }else{
                             if(state.basket.length == 1){
                                 state.basket.shift();
@@ -54,9 +59,6 @@ const basketReducer = (state = initialState, action) => {
                     if(item.discountFrom){
                         if(item.count % item.discountFrom == 0){
                             item.discount = (item.count / item.discountFrom) * item.discountPerMove;
-                        }
-                        if(item.count < 3){
-                            item.discount = 0;
                         }
                     }
                     
